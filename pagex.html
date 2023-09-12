@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head>
+  <meta name ="viewport" content="width=device-width, initial-scale=1">
+  <title> Messed up my wk2 server</title>
+
+  <style>
+    ol { margin: 5px; padding: 2px; list-style-type: none;}
+    li {display: inline-block; padding: 5px }
+  </style>
+
+  </style>
+  
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+ 
+  <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+  
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin>
+  </script> 
+   
+  <script src="https://unpkg.com/@babel/standalone@7.22.10/babel.min.js"></script></head>
+  
+<body>
+  <h1>Finally</h1>
+  <div id="wk2"></div>
+  <script type="text/babel">
+    "use stict";
+
+    function ProjectListx(props) 
+      { console.log(props);
+      return (
+      <div>
+        <ol>
+          {
+        props.list.map(
+          (item,index) => ( 
+            <li key={index}>
+            <a href={item.color}>
+              {item.fruit} 
+             
+            </a></li>
+                           
+                           
+          )
+        )
+          }
+
+          
+      </ol>
+      </div> ); }
+
+    $.getJSON( 'x', function(jsonFromJquery) {
+      const myRoot = ReactDOM.createRoot( document.getElementById("wk2")
+      );
+      myRoot.render(<ProjectListx list={jsonFromJquery} /> );
+      
+    } );
+    </script>
+</body>
+</html>
